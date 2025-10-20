@@ -1,3 +1,10 @@
 #include <semaphore.h>
 #include <iostream>
-#include <pthreads.h>
+#include <pthread.h>
+#include <windows.h>
+#include <stdio.h>
+#include <conio.h>
+#include <tchar.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <memoryapi.h>
