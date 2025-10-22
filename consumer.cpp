@@ -1,13 +1,11 @@
-#include <semaphore.h>
-#include <iostream>
-#include <pthread.h>
-#include <windows.h>
 #include <stdio.h>
-#include <conio.h>
-#include <tchar.h>
+#include <stdlib.h>
 #include <unistd.h>
+#include <pthread.h>
+#include <iostream>
 #include <fcntl.h>
-#include <memoryapi.h>
+#include <sys/mman.h>
+#include "producer.cpp"
 int main(int argc, char *argv[]) {
     int fileDescription;
     char * shmpath;
@@ -18,10 +16,10 @@ int main(int argc, char *argv[]) {
 
 
     //Truncate it to the size of the struct, ensures extra is not used
-    ftruncate(fd, sizeof(*consumerMem));
+    ftruncate(fileDescription, sizeof(*consumerMem));
 
     //Maps to local memory space
-    consumerMem = static_cast<sharedMem*>(mmap(NULL, sizeof(*consumerMem), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0));
+    consumerMem = static_cast<sharedMem*>(mmap(NULL, sizeof(*consumerMem), PROT_READ | PROT_WRITE, MAP_SHARED, fileDescription, 0));
 
     for (int i = 4; i >= 0; --i) {
         sem_wait(&(consumerMem->full));
