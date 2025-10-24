@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fcntl.h>
 #include <sys/mman.h>
-#include "producer.cpp"
+
 int main(int argc, char *argv[]) {
     int fileDescription;
     char * shmpath;
