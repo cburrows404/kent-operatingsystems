@@ -1,10 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
 #include <iostream>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include "memBuffer.hpp"
 
 int main(int argc, char *argv[]) {
     int fileDescription;

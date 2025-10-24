@@ -11,7 +11,6 @@ producer: ./producer.cpp
 run: ./
 	make producer
 	make consumer
-	clear
 	./out/producer shmfile & ./out/consumer shmfile
 clean:
 	rm -f ./out/consumer

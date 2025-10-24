@@ -1,27 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
 #include <iostream>
 #include <fcntl.h>
-#include <sys/shm.h>
-#include <sys/ipc.h>
-#include <semaphore.h>
-#include <sys/mman.h>
-
-#define TABLE_SIZE 2
- struct sharedMem {
-
-        int table[TABLE_SIZE];
-
-        int in;
-        int out;
-
-        sem_t mutex;
-        sem_t empty;
-        sem_t full;
-
-    };
+#include "memBuffer.hpp"
 int main(int argc, char *argv[]) {
     int fileDescription;
     char * shmpath;
