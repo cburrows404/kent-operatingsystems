@@ -8,6 +8,7 @@
 #include <sys/ipc.h>
 #include <semaphore.h>
 #include <sys/mman.h>
+#include "consumer.cpp"
 #define TABLE_SIZE 2
  struct sharedMem {
 
