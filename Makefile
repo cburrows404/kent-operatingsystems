@@ -4,14 +4,14 @@ msg:
 	@echo 'consumer'
 	@echo 'run'
 	@echo 'clean'
-consumer: ./consumer.cpp
+consumer: ./consumer.cpp 
 	g++ "./consumer.cpp" -pthread -lrt -o ./out/consumer
-producer: ./producer.cpp
+producer: ./producer.cpp 
 	g++ "./producer.cpp" -pthread -lrt -o ./out/producer
-run: ./
+run: 
 	make producer
 	make consumer
 	./out/producer shmfile & ./out/consumer shmfile
 clean:
-	rm -f ./out/consumer
-	rm -f ./out/producer
+	rm -f out/consumer
+	rm -f out/producer
